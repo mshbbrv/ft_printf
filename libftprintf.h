@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:20:55 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/19 22:15:24 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/20 22:42:00 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "libft/libft.h"
 # include <stdio.h>
 # define TYPES "cspdiuxX%nfge"
+# define DEC "0123456789"
+# define HEX "0123456789abcdef"
+# define OCT "01234567"
 
 typedef struct		s_fmts
 {
@@ -24,7 +27,7 @@ typedef struct		s_fmts
 	int				d;
 	int 			c;
 	char			*s;
-	char 			*p;
+	size_t 			p;
 	int 			i;
 	unsigned int	x;
 	unsigned int	X;
@@ -41,10 +44,13 @@ typedef struct		s_fmts
 }					t_fmts;
 
 int		ft_printf(const char *, ...);
-void	ft_parse_and_print(const char *fmt, va_list *ap);
-void	ft_flags_parse(const char *fmt, t_fmts *fmts);
-void	ft_type_parse(const char *fmt, t_fmts *fmts, va_list **ap);
-void	ft_width_parse(const char *fmt, t_fmts *fmts, va_list **ap);
-void	ft_print_int(t_fmts *fmts);
-void	ft_doprint(t_fmts *fmts);
+int 	ft_doparse_doprint(const char **fmt, va_list *ap);
+void	ft_flags_parse(const char **fmt, t_fmts *fmts);
+void	ft_type_parse(const char **fmt, t_fmts *fmts, va_list **ap);
+void	ft_width_parse(const char **fmt, t_fmts *fmts, va_list **ap);
+int 	ft_print_int(t_fmts *fmts);
+int 	ft_print_char(t_fmts *fmts);
+int 	ft_doprint(t_fmts *fmts);
+int		ft_putchar_rv(char c, int fd);
+int		ft_putnbr_base_rv(int n, int base, int fd);
 #endif

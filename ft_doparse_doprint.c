@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_parse.c                                   :+:      :+:    :+:   */
+/*   ft_doparse_doprint.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 19:46:00 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/20 13:33:49 by thjonell         ###   ########.fr       */
+/*   Created: 2020/11/18 19:39:26 by thjonell          #+#    #+#             */
+/*   Updated: 2020/11/20 16:25:50 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_flags_parse(const char **fmt, t_fmts *fmts)
+int ft_doparse_doprint(const char **fmt, va_list *ap)
 {
-	while ((*fmt && !ft_strchr(TYPES, **fmt)) && !(**fmt >= '1'
-	&& **fmt <='9') && **fmt != '*')
-	{
-		if ('0' == **fmt)
-			fmts->fillchr = '0';
-		if ('-' == **fmt)
-			fmts->leftjust = 1;
-		if ('+' == **fmt)
-			fmts->plus_sign = '+';
-		if (' ' == **fmt)
-			if (fmts->plus_sign == 0)
-				fmts->plus_sign = ' ';
-		(*fmt)++;
-	}
+	t_fmts fmts;
+
+	fmts.width = 0;
+	fmts.leftjust = 0;
+	fmts.fillchr = ' ';
+	fmts.plus_sign = 0;
+	ft_flags_parse(&*fmt, &fmts);
+	ft_width_parse(&*fmt, &fmts, &ap);
+	ft_type_parse(&*fmt, &fmts, &ap);
+	return (ft_doprint(&fmts));
 }

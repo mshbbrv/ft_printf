@@ -6,41 +6,43 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:45:54 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/19 22:04:37 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/20 16:17:24 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_type_parse(const char *fmt, t_fmts *fmts, va_list **ap)
+void	ft_type_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 {
-	while (!ft_strchr(TYPES, *fmt))
-		fmt++;
-	if (*fmt == 'c')
+	if (**fmt == 'c')
+	{
 		fmts->c = va_arg(**ap, int);
-	if (*fmt == 's')
+		fmts->type = 'c';
+	}
+	if (**fmt == 's')
 		fmts->s = va_arg(**ap, char *);
-	if (*fmt == 'p')
+	if (**fmt == 'p')
 		fmts->p = va_arg(**ap, char *);
-	if (*fmt == 'd')
+	if (**fmt == 'd')
 	{
 		fmts->dd = va_arg(**ap, int);
 		fmts->type = 'd';
 	}
-	if (*fmt == 'i')
+	if (**fmt == 'i')
 		fmts->i = va_arg(**ap, int);
-	if (*fmt == 'u')
+	if (**fmt == 'u')
 		fmts->u = va_arg(**ap, unsigned int);
-	if (*fmt == 'x')
+	if (**fmt == 'x')
 		fmts->x = va_arg(**ap, unsigned int);
-	if (*fmt == 'X')
+	if (**fmt == 'X')
 		fmts->X = va_arg(**ap, unsigned int);
-	if (*fmt == 'n')
+	if (**fmt == 'n')
 		fmts->n = va_arg(**ap, int);
-	if (*fmt == 'f')
+	if (**fmt == 'f')
 		fmts->f = va_arg(**ap, double);
-	if (*fmt == 'g')
+	if (**fmt == 'g')
 		fmts->g = va_arg(**ap, double);
-	if (*fmt == 'e')
+	if (**fmt == 'e')
 		fmts->e = va_arg(**ap, double);
+	(*fmt)++;
 }

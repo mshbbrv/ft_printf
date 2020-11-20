@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 17:22:16 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/19 22:28:39 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/20 19:32:37 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,22 @@
 int ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
+	int 	size;
 
+	size = 0;
 	va_start(ap, fmt);
 	while (*fmt)
 	{
 		if (*fmt != '%')
-		{
-			ft_putchar_fd(*fmt, 1);
-			fmt++;
-		}
+			size += ft_putchar_rv(*fmt++, 1);
 		else
 		{
-			ft_parse_and_print(++fmt, &ap);
-			while (!ft_strchr(TYPES, *fmt))
-				fmt++;
 			fmt++;
+			size += ft_doparse_doprint(&fmt, &ap);
 		}
 	}
 	va_end(ap);
-	return (0);
+	return (size);
 }
 
 
