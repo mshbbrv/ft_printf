@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2020/11/23 15:45:47 by thjonell         ###   ########.fr        #
+#    Updated: 2020/11/23 20:51:00 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
-SOURCE		= srcs/ft_doparse_doprint.c srcs/ft_print_str.c \
+SOURCE		= srcs/ft_doparse_doprint.c srcs/ft_print_str.c srcs/ft_isalpha.c \
 				srcs/ft_putnbr_base_rv.c srcs/ft_flags_parse.c \
 				srcs/ft_print_un_int.c srcs/ft_strchr.c srcs/ft_prec_parse.c \
 				srcs/ft_print_x.c srcs/ft_type_parse.c srcs/ft_print_char.c \

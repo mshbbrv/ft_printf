@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 21:58:32 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 20:33:10 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:33:26 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_prec_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 {
-	while (**fmt && !ft_strchr(TYPES, **fmt))
+	while (**fmt && !ft_isalpha(**fmt))
 	{
 		if ('.' == **fmt)
 		{
@@ -32,7 +32,7 @@ void	ft_prec_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 			else if ('*' == **fmt)
 				fmts->prec = va_arg(**ap, int);
 		}
-		if (!ft_strchr(TYPES, **fmt))
+		if (!ft_isalpha(**fmt))
 			++(*fmt);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 18:45:54 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 16:08:38 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/23 16:08:52 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	ft_type_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 		fmts->type = 'd';
 	}
 	ft_type_parse_half(fmt, fmts, ap);
-	(*fmt)++;
+	if (ft_strchr(TYPES, **fmt))
+		(*fmt)++;
 }

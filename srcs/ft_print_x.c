@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 19:27:39 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 20:20:35 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/23 21:41:11 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 static int	ft_x_lennbr_base(size_t n, int base)
 {
-	static int size = 0;
+	int size;
 
-	if (n / base != 0)
-		ft_x_lennbr_base(n / base, base);
+	size = 0;
 	size++;
+	if (n / base != 0)
+		size += ft_x_lennbr_base(n / base, base);
 	return (size);
 }
 

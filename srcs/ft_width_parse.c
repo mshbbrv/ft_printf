@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 19:12:44 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/22 22:08:23 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/23 20:34:01 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_width_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 {
-	while (**fmt && !ft_strchr(TYPES, **fmt) && **fmt != '.')
+	while (**fmt && !ft_isalpha(**fmt) && **fmt != '.')
 	{
 		if (**fmt >= '1' && **fmt <= '9')
 		{
@@ -34,7 +34,7 @@ void	ft_width_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 				fmts->width = -fmts->width;
 			}
 		}
-		if (!ft_strchr(TYPES, **fmt) && **fmt != '.')
+		if (!ft_isalpha(**fmt) && **fmt != '.')
 			(*fmt)++;
 	}
 }

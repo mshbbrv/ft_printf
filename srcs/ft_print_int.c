@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 21:21:36 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 20:48:54 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/23 21:51:45 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,7 @@ static int	ft_int_left_justified(t_fmts **fmts, int d_size, int prec, int size)
 {
 	(*fmts)->width -= (d_size + (*fmts)->prec);
 	if ((*fmts)->plus_sign && (*fmts)->d >= 0)
-	{
 		size += ft_putchar_rv((*fmts)->plus_sign, 1);
-		(*fmts)->width--;
-	}
 	if ((*fmts)->prec > 0 && (*fmts)->d < 0)
 	{
 		size += ft_putchar_rv('-', 1);
@@ -103,6 +100,8 @@ int			ft_print_int(t_fmts *fmts)
 			fmts->width++;
 	}
 	if (fmts->d < 0)
+		fmts->width--;
+	else if (fmts->plus_sign)
 		fmts->width--;
 	if (fmts->leftjust)
 		return (ft_int_left_justified(&fmts, d_size, fmts->prec, 0));
