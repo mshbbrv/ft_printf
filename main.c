@@ -1,15 +1,16 @@
 #include "libftprintf.h"
+#include <stdio.h>
 
 int main(void)
 {
 	int size;
+	int a = 123;
+	int *b;
 
-	size = printf("str1 = |%-0*d|\n", 5, 42);
+	b = &a;
+	size = printf("str1 = |%.*u\n", -1, 0);
 	printf("size1 = %d\n", size);
-	size = ft_printf("str2 = |%-0*d|\n", 5, 42);
+	size = ft_printf("str2 = |%.*u\n", -1, 0);
 	printf("size2 = %d\n", size);
-	/*size = ft_putnbr_base_rv(-1000, 8, 1);
-	printf("\n");
-	printf("size = %d\n", size);*/
 	return (0);
 }
