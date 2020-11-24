@@ -14,7 +14,7 @@
 
 void	ft_width_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 {
-	while (**fmt && !ft_isalpha(**fmt) && **fmt != '.')
+	while (**fmt && !ft_isalpha_perc(**fmt) && **fmt != '.')
 	{
 		if (**fmt >= '1' && **fmt <= '9')
 		{
@@ -34,7 +34,7 @@ void	ft_width_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 				fmts->width = -fmts->width;
 			}
 		}
-		if (!ft_isalpha(**fmt) && **fmt != '.')
+		if (!ft_isalpha_perc(**fmt) && **fmt != '.')
 			(*fmt)++;
 	}
 }

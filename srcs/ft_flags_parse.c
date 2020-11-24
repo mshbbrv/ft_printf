@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 19:46:00 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 22:14:33 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:06:41 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 void	ft_flags_parse(const char **fmt, t_fmts *fmts)
 {
-	while (**fmt && !ft_isalpha(**fmt) && !(**fmt >= '1'
+	while (**fmt && !ft_isalpha_perc(**fmt) && !(**fmt >= '1'
 	&& **fmt <= '9') && **fmt != '*' && **fmt != '.')
 	{
 		if ('0' == **fmt)
 			fmts->fillchr = '0';
 		if ('-' == **fmt)
 			fmts->leftjust = 1;
-		if ('+' == **fmt)
-			fmts->plus_sign = '+';
-		if (' ' == **fmt && fmts->plus_sign == 0)
-			fmts->plus_sign = ' ';
 		(*fmt)++;
 	}
 }

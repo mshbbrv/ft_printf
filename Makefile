@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2020/11/23 20:51:00 by thjonell         ###   ########.fr        #
+#    Updated: 2020/11/24 15:11:15 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SOURCE		= srcs/ft_doparse_doprint.c srcs/ft_print_str.c srcs/ft_isalpha.c \
 OBJECTS 	= ${SOURCE:.c=.o}
 
 INCLUDE		= inc
+
+OBJ_DIR		= obj/
 
 .c.o:
 			${CC} ${CFLAGS} -I${INCLUDE} -c $< -o ${<:.c=.o}

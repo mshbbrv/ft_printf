@@ -43,7 +43,6 @@ int	ft_doparse_doprint(const char **fmt, va_list *ap)
 	fmts.width = 0;
 	fmts.leftjust = 0;
 	fmts.fillchr = ' ';
-	fmts.plus_sign = 0;
 	fmts.prec = 0;
 	fmts.precflag = 0;
 	ft_flags_parse(&*fmt, &fmts);

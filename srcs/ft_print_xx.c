@@ -14,22 +14,23 @@
 
 static int	ft_putnbr_hhex(size_t n, int fd)
 {
-	static int size = 0;
+	int size;
 
+	size = 0;
 	if (n / 16 != 0)
 		ft_putnbr_hhex(n / 16, fd);
-	write(fd, &HIGHHEX[n % 16 * (n < 0 ? -1 : 1)], 1);
-	size++;
+	size += write(fd, &HIGHHEX[n % 16 * (n < 0 ? -1 : 1)], 1);
 	return (size);
 }
 
 static int	ft_xx_lennbr_base(size_t n, int base)
 {
-	static int size = 0;
+	int size;
 
-	if (n / base != 0)
-		ft_xx_lennbr_base(n / base, base);
+	size = 0;
 	size++;
+	if (n / base != 0)
+		size += ft_xx_lennbr_base(n / base, base);
 	return (size);
 }
 

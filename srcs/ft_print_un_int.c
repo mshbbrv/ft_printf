@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 17:38:17 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 20:17:42 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:58:57 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 static int	ft_un_int_lennbr_base(size_t n, int base)
 {
-	static int size = 0;
+	int size;
 
-	if (n / base != 0)
-		ft_un_int_lennbr_base(n / base, base);
+	size = 0;
 	size++;
+	if (n / base != 0)
+		size += ft_un_int_lennbr_base(n / base, base);
 	return (size);
 }
 
@@ -57,7 +58,7 @@ int			ft_print_un_int(t_fmts *fmts)
 	int d_size;
 
 	d_size = ft_un_int_lennbr_base(fmts->u, 10);
-	if (fmts->precflag)
+	if (fmts->precflag && fmts->prec >= 0)
 		fmts->fillchr = ' ';
 	if (fmts->prec >= d_size)
 		fmts->prec -= d_size;

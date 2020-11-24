@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:20:55 by thjonell          #+#    #+#             */
-/*   Updated: 2020/11/23 21:25:27 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:06:41 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct		s_fmts
 	int				width;
 	int				leftjust;
 	char			fillchr;
-	int				plus_sign;
 	int				prec;
 	int				precflag;
 }					t_fmts;
@@ -53,5 +52,5 @@ int					ft_print_xx(t_fmts *fmts);
 int					ft_putchar_rv(char c, int fd);
 int					ft_putnbr_base_rv(size_t n, int base, int fd);
 char				*ft_strchr(const char *s, int c);
-int					ft_isalpha(int c);
+int					ft_isalpha_perc(int c);
 #endif

@@ -14,7 +14,7 @@
 
 void	ft_prec_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 {
-	while (**fmt && !ft_isalpha(**fmt))
+	while (**fmt && !ft_isalpha_perc(**fmt))
 	{
 		if ('.' == **fmt)
 		{
@@ -32,7 +32,7 @@ void	ft_prec_parse(const char **fmt, t_fmts *fmts, va_list **ap)
 			else if ('*' == **fmt)
 				fmts->prec = va_arg(**ap, int);
 		}
-		if (!ft_isalpha(**fmt))
+		if (!ft_isalpha_perc(**fmt))
 			++(*fmt);
 	}
 }

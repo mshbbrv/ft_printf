@@ -58,7 +58,7 @@ int			ft_print_x(t_fmts *fmts)
 	int d_size;
 
 	d_size = ft_x_lennbr_base(fmts->u, 16);
-	if (fmts->precflag)
+	if (fmts->precflag && fmts->prec >= 0)
 		fmts->fillchr = ' ';
 	if (fmts->prec >= d_size)
 		fmts->prec -= d_size;
