@@ -18,7 +18,7 @@ static int	ft_putnbr_hhex(size_t n, int fd)
 
 	size = 0;
 	if (n / 16 != 0)
-		ft_putnbr_hhex(n / 16, fd);
+		size += ft_putnbr_hhex(n / 16, fd);
 	size += write(fd, &HIGHHEX[n % 16 * (n < 0 ? -1 : 1)], 1);
 	return (size);
 }
